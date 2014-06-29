@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>上传FM</title>
+    <style type="text/css">
+        .submit{
+            width: 10%;
+        }
+        input[type="submit"]{
+            color: white;
+        }
+    </style>
+    <script src="../../assets/plugins/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        function init(){
+        $.getJSON("list-kind",function(data) {
+            $(data.list).each(function(i,item){
+                alert(item.name);
+                var label = $('<label class="radio-inline"><input type="radio" name="myFile.kind" id="optionsRadio'
+                        +i+'" value="'+item.id+'"/>'+item.name+'</label>');
+                label.prependTo("#tdiv");
+                //TODO 123
+            });
+            $(":radio").eq(0).attr("checked","checked");
+        });
+        }
+    </script>
+</head>
+<body>
+<form action="upload" method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend>FM信息</legend>
+        <p>
+            <label>上传文件<input type="file" name="file"/></label>
+        </p>
+        <p>
+            <label>上传图片<input type="file" name="file"/></label>
+        </p>
+        <p>
+        <label>文件名称<input type="text" name="fm.name"  autofocus/></label>
+        </p>
+        <p>
+            <label id="tdiv" onload="init()">文件分类
+                <input type="radio" name="kind" name="fm.kind" />军事新闻
+                <input type="radio" name="kind" />武器装备
+                <input type="radio" name="kind"/>战役与战争
+                <input type="radio" name="kind" />科技与神秘
+                <input type="radio" name="kind" />其它
+            </label>
+        </p>
+        <p>
+            <label>来源信息<input type="text" name="fm.source" list="slist"/></label>
+            <datalist id="slist">
+                <option>凤凰网</option>
+                <option>中华网</option>
+                <option>军事网</option>
+            </datalist>
+        </p>
+        <p>
+            <label><input type="submit" value="提交" /></label>
+            
+
+        </p>
+    </fieldset>
+</form>
+</body>
+</html>

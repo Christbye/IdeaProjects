@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/../out/test/Web"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="$MODULE_DIR$/web/WEB-INF/lib" scope="COMPILE">
+		<relative-module-cls project-related="file://$PROJECT_DIR$/Web/web/WEB-INF/lib"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/aopalliance-1.0.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/commons-logging-1.1.3.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-tx-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-aop-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-jms-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-orm-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-oxm-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-core-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-jdbc-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-test-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-beans-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-aspects-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-context-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-messaging-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-expression-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-instrument-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-context-support-4.0.5.RELEASE.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/Web/web/WEB-INF/lib/spring-instrument-tomcat-4.0.5.RELEASE.jar!/"/>
+	</lib>
+	<levels>
+		<level name="Tomcat 8.0.8" value="application_server_libraries"/>
+		<level name="jave－audio" value="project"/>
+		<level name="Spring-4.0.5.RELEASE" value="project"/>
+	</levels>
+</component>

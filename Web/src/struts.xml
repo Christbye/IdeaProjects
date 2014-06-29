@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <!-- 开发时设置 -->
+    <!-- 把它设置为开发模式，发布时要设置为false -->
+    <constant name="struts.devMode" value="true" />
+    <!-- 设置在class被修改时是否热加载，发布时要设置为false -->
+    <constant name="struts.convention.classes.reload" value="true"/>
+    <!-- 自动动态方法的调用，使用这个设置后可以这样调用：action!method -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <!-- 指定jsp文件所在的目录地址 -->
+    <constant name="struts.convention.result.path" value="/WEB-INF/" />
+    <!-- 用于配置包名后缀。默认为action、actions、struts-->
+    <!-- <constant name="struts.convention.package.locators" value="controller" /> -->
+    <constant name="struts.convention.action.packages" value="org.tfm.struts"/>
+    <!-- 用于配置类名后缀，默认为Action，设置后，Struts2只会去找这种后缀名的类做映射 -->
+    <constant name="struts.convention.action.suffix" value="Action"/>
+    <!-- 设置即使没有@Action注释，依然创建Action映射。默认值是false。因为Convention-Plugin是约定优于配置的风格，
+        可以不通过注解根据预先的定义就能访问相应Action中的方法 -->
+    <constant name="struts.convention.action.mapAllMatches" value="true"/>
+    <!-- 自定义jsp文件命名的分隔符 -->
+    <constant name="struts.convention.action.name.separator" value="-" />
+    <!-- i18n start
+    <!- 国际化资源文件名称 ->
+    <constant name="struts.custom.i18n.resources" value="i18n" />
+    <!- 是否自动加载国际化资源文件  ->
+    <constant name="struts.i18n.reload" value="true" />
+    -->
+    <!-- 浏览器是否缓存静态内容 -->
+    <constant name="struts.serve.static.browserCache" value="false" />
+    <!-- 上传文件大小限制设置 -->
+    <constant name="struts.multipart.maxSize" value="104857600" />
+    <!-- 主题，将值设置为simple，即不使用UI模板。这将不会生成额外的html标签 -->
+    <constant name="struts.ui.theme" value="simple" />
+    <!-- 编码格式 -->
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <!-- 设置默认package -->
+    <constant name="struts.convention.default.parent.package" value="default"/>
+
+    <package name="default" namespace="/" extends="json-default">
+        <interceptors>
+            <interceptor name="login" class="org.tfm.interceptor.LoginInterceptor"/>
+            <!--<interceptor name="log" class="org.tfm.interceptor.ExceptionLogInterceptor"/>-->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="defaultStack"/>
+                <!--<interceptor-ref name="paramsPrepareParamsStack"/>-->
+                <interceptor-ref name="login"/>
+                <!--<interceptor-ref name="log"/>-->
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="myStack"/>
+        <default-action-ref name="index" />
+        <global-results>
+            <result name="input">/WEB-INF/index.jsp</result>
+            <!--<result name="jump">list-kind?unUseJson=true</result>-->
+            <result name="jump" type="redirectAction">
+                <param name="actionName">list-kind</param>
+                <param name="unUseJson">true</param>
+            </result>
+            <result name="error">/WEB-INF/error.jsp</result>
+            <result name="json" type="json">
+                <!-- 是否包括父类的属性输出,默认true. -->
+                <!-- <param name="ignoreHierarchy">false</param> -->
+                <!-- 是否输出null值的属性，默认false -->
+                <!-- <param name="excludeNullProperties">true</param> -->
+            </result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+    </package>
+
+</struts>
